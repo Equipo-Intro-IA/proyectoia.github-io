@@ -1,0 +1,138 @@
+body{
+    font-family: arial, helvetica, sans-serif;
+    background-image: url("fondo_encabezado.png");
+    background-size: cover;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 1040px;
+    margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: block;
+}
+
+.menu li{
+    display: inline-block;
+    text-align: center;
+}
+
+.menu li a:hover{
+    color: rgb(247, 238, 46);
+}
+
+.encabezado{
+    padding: 20px;
+    color: rgb(247, 238, 46);
+    font-family: smooch;
+}
+
+.titulo_integrantes{
+    padding-left: 30px;
+    color: rgba(255, 255, 255, 0.836);
+}
+
+.integrantes{
+    padding-left: 30px;
+    color: rgba(255, 255, 255, 0.836);
+}
+
+.resumen{
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.836);
+    font-family: helvetica;
+}
+
+p{
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.836);
+}
+
+button{
+    padding-left: 0;
+    margin: auto;
+    border-radius: 47%;
+    align-items: center;
+    background:none;
+    width: 4%;
+    border-color: white;
+    color:rgb(255,255,255);
+}
+
+.boton{
+    text-align: center;
+    padding-top: 20px;
+}
+
+button:hover{
+    color: rgb(247, 238, 46);
+    border-color: rgb(247, 238, 46);
+}
+
+#webcam-container{
+    text-align: center;
+    padding: 20px;
+}
+
+#label-container-images{
+    color: white;
+    text-align: center;
+}
+
+#label-container{
+    color: white;
+    text-align: center;
+    
+}
+
+#canvas{
+    align-items: center;
+    justify-content: center;;
+    padding: 20px;
+}
+
+.red_neuronal{
+    text-align: center;
+    color: white;
+}
+
+.subtitulo{
+    color: rgb(247, 238, 46);
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
+.resumen-red{
+    padding-left: 90px;
+    padding-right: 40px;
+    color: rgba(255, 255, 255, 0.836);
+    font-family: helvetica;
+}
+
+.resultados-red{
+    display: block;
+    margin:auto;
+    padding: 40px;
+    border-radius: 9%;
+}
+
+.red_neuronal a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: block;
+    margin:auto;
+    border: auto;
+    border-color: white;
+}
+
+.red_neuronal a:hover{
+    color:rgb(247, 238, 46);
+}

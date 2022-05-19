@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Análisis de red neuronal</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <ul class="menu">
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="images.html">Reconocimiento de imagenes</a></li>
+            <li><a href="poses.html">Reconocimiento de poses</a></li>
+            <li><a href="sonidos.html">Reconocimiento de sonidos</a></li>
+            <li><a href="red.html">Analisis de la red neuronal</a></li>
+        </ul>
+        <div class="encabezado">
+            <h1><center>Análisis de red neuronal sobre Regresión Lineal</center></h1>
+        </div>
+        <p class="resumen">
+            Este es el análisis de una red neuronal acerca del tema de Regresión Lineal. (El link para acceder a la red analizada se encuentra en el nombre de la misma).
+        <div class="red_neuronal">
+            <a href="https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_training_curves.html#sphx-glr-download-auto-examples-neural-networks-plot-mlp-training-curves-py">SCIKIT-LEARN / SECCIÓN 1.17.2 <br>
+            COMPARAR ESTRATEGIAS DE APRENDIZAJE ESTOCÁSTICO PARA MLPCLASSIFIER</a>
+        </div>
+        <div class="subtitulo">
+            1. Generalidades del modelo:
+        </div>
+
+        <p class="resumen-red">
+            - El modelo que se va a analizar es, en resumidas cuentas, un ejemplo de curvas de pérdida de entrenamiento para diferentes modelos estocásticos 
+            (estocástico se refiere a un modelo donde el azar provoca ciertas alteraciones que son analizadas estadísticamente). Los modelos que usa son el 
+            “Stochastic Gradient Descent” (SGD), y el modelo Adam.
+        </p>
+        <p class="resumen-red">
+            - Aquí es necesario hablar de los 3 modelos estocásticos que se manejan en esta sección, para explicar porque solamente se manejan 2 de estos. 
+            El primero modelo es <bold>L-BFGS</bold>, el cual suele ser muy utilizado en conjuntos pequeños de datos porque es muy efectivo a la hora de hacer 
+            modelos de regresión lineal. El segundo es el <bold>modelo Adam</bold>, el cual tiene un nivel mayor de complejidad que el anterior por lo que no suele ser 
+            usado con modelos de datos pequeños, pero a la hora de conjuntos grandes, este es perfecto por su óptimo rendimiento. El tercero de estos es el 
+            ya mencionado <bold>SGD</bold>, el cual es el más débil de los 3 por sí solo, pero al añadir un impulso (momentum) sencillo o impulso de Nesterov, y ajustar de 
+            forma correcta la tasa de aprendizaje, este funciona de forma mucho mejor que los anteriores 2.
+        </p>
+        <p class="resumen-red">
+            - Antes de continuar, es necesario aclarar algunos conceptos matemáticos. Al hablar de la ecuación de la recta, se tiene la siguiente fórmula: <bold>y=mx+b</bold>, 
+            en la cual <bold>b</bold> representa el punto de corte con el eje <bold>y</bold>, y <bold>m</bold> la pendiente de la recta. Al igual que la derivada, el GRADIENTE representa la pendiente de 
+            la curva tangente. Teniendo en cuenta esto, el algoritmo llamado “descenso de gradiente” es un modelo de optimización que sigue el gradiente negativo de 
+            una función objetivo para localizar el mínimo de la función. Aplicado a nuestro tema, se basa en buscar la mínima tasa de error posible. Ahora bien, el 
+            impulso o momentum es una herramienta que ayuda a este algoritmo a llegar más rápido a su menor punto, pero en ocasiones, la aceleración del mismo 
+            genera inexactitudes. Es por esto que entra a jugar el IMPULSO DE NESTEROV, el cual implica calcular el promedio del móvil decreciente de los gradientes 
+            de las posiciones proyectadas en el espacio de búsqueda en lugar de las posiciones reales en sí mismas. Es decir, el impulso de 
+            Nesterov aprovecha la aceleración generada por el impulso, pero se detiene a si misma conforme se acerca al punto más bajo, de forma que el resultado 
+            final sea el óptimo.
+        </p>
+        <p class="resumen-red">
+            - Por último, es conveniente recalcar el hecho de que los resultados del modelo dependen de la tasa de aprendizaje asignada. A continuación, se 
+            aplicará esto al modelo.
+        </p>
+
+        <div class="subtitulo">2. ¿Cómo funciona el modelo?</div>
+
+        <p class="resumen-red">
+            - Primero que todo, se declaran 4 conjuntos de datos en los que se va a hacer el entrenamiento con los modelos estipulados. Estos últimos son: 
+            Tasa de aprendizaje constante, Constante con impulso, Constante con impulso de Nesterov, Tasa de aprendizaje de escala inv., escalamiento inv. 
+            con impulso, escalamiento inv. con impulso de Nesterov y Adam (inv. Significa “Improved Inverse Scaling”, el cual consiste en un modelo de 
+            escalamiento inverso usado para computar el algoritmo matriz). 
+        </p>
+        <p class="resumen-red">
+            - A estos modelos se les asignan variables específicas para su desarrollo y se les pide hacer 3 cosas, la primera es hacer un reporte de la 
+            puntuación del conjunto de entrenamiento, la segunda, un reporte de la pérdida de conjuntos de entrenamiento, y la tercera, una gráfica que 
+            muestre las curvas de pérdida de entrenamiento obtenidas a partir de las simulaciones.
+        </p>
+        
+        <div class="subtitulo">3. Interpretación de los resultados:</div>
+        <image class="resultados-red" src="resultados.png"></image>
+
+        <p class="resumen-red">
+            - En primer lugar, las curvas de aprendizaje son gráficas usadas para medir la tasa de aprendizaje, o de la pérdida de este, a lo largo de un 
+            tiempo o experiencia determinada.
+        </p>
+        <p class="resumen-red">
+            - Los conjuntos de datos usados para este modelo son pequeños, por lo que al usar las estrategias de aprendizaje ya mencionadas (las cuales son 
+            óptimas para conjuntos grandes), todos los resultados que arrojan son menores a 0. Sin embargo, esta tendencia general se puede trasladar a 
+            modelos más grandes y mostrar resultados similares ya que las líneas suelen mostrar el mismo comportamiento.
+        </p>
+        <p class="resumen-red">
+            - Ahora bien, puntualmente se observa que todas las constantes sencillas (es decir, que no involucran el modelo inv.) tienen una menor tasa de 
+            pérdida de entrenamiento que las que sí tienen el modelo inv., lo que quiere decir que, en conjuntos de datos como los usados en esta prueba, 
+            las estrategias constantes, con impulso y con impulso de Nesterov son las mejores para que el entrenamiento de mejores resultados con el paso del 
+            tiempo.
+        </p>
+        <p class="resumen-red">
+            - Sin embargo, queda una última estrategia de aprendizaje por analizar, Adam. Este presenta la menor tasa de pérdida de entrenamiento de todas, y 
+            esto se debe a que el modelo de entrenamiento Adam fue creado para optimizar de la mejor forma todas las tareas, virtuales y físicas. Este modelo 
+            tuvo su origen en la Andragogía (modelo de enseñanza de métodos, estrategias, técnicas y procedimientos eficaces para el aprendizaje del adulto), 
+            y logró usar los conceptos de esta para educar a los sistemas inteligentes sobre su entorno. Es por esto que el modelo Adam es uno de los mejores 
+            para estas labores.
+        </p>
+
+
+    </body>
+
+</html>
